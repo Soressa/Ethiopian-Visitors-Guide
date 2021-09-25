@@ -1,7 +1,12 @@
 const initialState = { 
-    posts: {
+    places: {
         list: []
-    }
+    },
+    categories: {
+        list: [],
+      },
+    
 };
+
 
 export default initialState

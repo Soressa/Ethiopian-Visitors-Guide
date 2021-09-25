@@ -15,41 +15,28 @@ const api = axios.create({
 });
 
 export default class API {
-    getPosts = async () => {
-        const posts = await api
-            .get("/posts/")
+    getPlaces = async () => {
+        const places = await api
+            .get("/places/")
             .then((response) => {
                 return response.data
             })
             .catch((error) => {
                 throw new Error(error)
             })
-        return posts
-    }
-    addPost = async (name, body, image) => {
-        const formData = new FormData();
-        formData.append("name", name);
-        formData.append("body", body);
-        formData.append("image", image);
-        const savedPost = await api
-            .post("/posts/add/", formData)
+        return places
+    };
+    getCategories = async () => {
+        const categories = await api
+            .get("/categories/")
             .then((response) => {
+                console.log(response.data);
+                console.log('hello ');
                 return response.data
             })
             .catch((error) => {
                 throw new Error(error)
             })
-        return savedPost
-    }
-    deletePost = async (id) => {
-        const response = await api
-            .delete("/posts/delete/" + id + "/")
-            .then((response) => {
-                return response.data
-            })
-            .catch((error) => {
-                throw new Error(error)
-            })
-        return response
-    }
+        return categories
+    };
 }

@@ -8,12 +8,15 @@ import {connectRouter, routerMiddleware} from "connected-react-router";
 import thunk from 'redux-thunk';
 
 import {PostsReducer} from '../posts/reducers';
+import { PlacesReducer } from '../places/reducers';
+import { CategoriesReducer } from '../categories/reducers';
 
 export default function createStore(history) {
     return reduxCreateStore(
         combineReducers({
             router: connectRouter(history),
-            posts: PostsReducer,
+            places:PlacesReducer,
+            categories:CategoriesReducer,
        }),
        compose(
         applyMiddleware(
