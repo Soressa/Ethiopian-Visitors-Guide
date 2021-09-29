@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import Footer from '../components/common/Footer'
 import GridContent from '../components/common/GridContent'
 import Header from '../components/common/Header'
@@ -21,9 +21,10 @@ const Home = () => {
   }, []);
   const categories = getCategories(selector)
   useEffect(() => {
-   dispatch(fetchCategories)
+   dispatch(fetchCategories())
   }, []);
-  console.log(categories);
+  // console.log(categories);
+
   return (
     <>
        <Header img={ImgEVGAlogo}/>
