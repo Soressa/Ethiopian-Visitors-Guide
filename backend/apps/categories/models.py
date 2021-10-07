@@ -3,6 +3,9 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Category(models.Model):
+    class Meta(object):
+        db_table = 'category'
+
     name = models.CharField(
         'Name', max_length=50, null=False, blank=False
     )

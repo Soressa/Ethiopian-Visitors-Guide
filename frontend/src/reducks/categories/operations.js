@@ -8,7 +8,6 @@ export const fetchCategories = () => {
         return api.getCategories()
             .then((categories) => {
                 dispatch(fetchCategoriesAction(categories));
-                console.log(categories);
             }).catch((error) => {
                 alert("Failed to connect API: /categories/")
             })

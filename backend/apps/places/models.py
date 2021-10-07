@@ -9,6 +9,8 @@ class Place(models.Model):
         ('Private and Luxury', 'Private and Luxury'),
         ('Full-day Tours', 'Full-day Tours'),
         ('Day trips', 'Day trips'),
+        ('Forest', 'Forest'),
+        ('Favourites', 'Favourites'),
        
     )
     class Meta(object):

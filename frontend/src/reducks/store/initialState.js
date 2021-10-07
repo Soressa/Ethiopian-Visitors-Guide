@@ -5,6 +5,10 @@ const initialState = {
     categories: {
         list: [],
       },
+      favourites: {
+        list: [],
+      },
+    
     
 };
 

@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect} from 'react'
 import Footer from '../components/common/Footer'
 import GridContent from '../components/common/GridContent'
 import Header from '../components/common/Header'
@@ -12,6 +12,7 @@ import {getCategories} from '../reducks/categories/selectors'
 import { fetchPlaces } from '../reducks/places/operations'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchCategories } from '../reducks/categories/operations'
+import { fetchFromLocalStorage } from '../reducks/favourites/operations'
 const Home = () => {
   const dispatch = useDispatch();
   const selector = useSelector(state => state);
@@ -20,9 +21,12 @@ const Home = () => {
     dispatch(fetchPlaces())
   }, []);
   const categories = getCategories(selector)
+  console.log(places);
   useEffect(() => {
-   dispatch(fetchCategories())
+   dispatch(fetchCategories());
+   dispatch(fetchFromLocalStorage());
   }, []);
+
   // console.log(categories);
 
   return (
@@ -55,4 +59,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;

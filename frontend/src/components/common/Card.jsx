@@ -1,34 +1,54 @@
-import React from 'react'
+import React, {useEffect, useState } from 'react'
+import { addFavourite } from '../../reducks/favourites/operations'
+import { getFavourites } from '../../reducks/favourites/selectors'
+import { useSelector, useDispatch } from 'react-redux'
 import Imglike from '../../assets/img/Like_button.svg'
+import Places from '../../containers/Places'
 
 const Card = ({place}) => {
+    const dispatch = useDispatch();
+    const clickFavourite = (place) => {
+      dispatch(addFavourite(place));
+    };
+    const selector = useSelector((state) => state);
+    const favourites = getFavourites(selector);
+    const [showLikeButton, setShowLikeButton] = useState(true);
+    useEffect(() => {
+      let favoritePlace = favourites.filter(
+        (favourite) => favourite.id == place.id
+      );
+      if (favoritePlace.length > 0) {
+        setShowLikeButton(false);
+      }
+    }, [favourites]);
+
     return (
         <>
-           <div class="gridcontent">
+           <div class="gridcontent row">
                 
                 <div class="image">
-                   <img class="mainimage" src="images/Ziway-hippo.png" alt="" />
-                   <div class="like">
-                      <img src={Imglike} alt="" />
-                </div>
+                <img class="mainimage" src={place.image} alt="" />
+                <div class="like">
+                      <img src={Imglike} onClick={() => {clickFavourite(place)}} alt="" />
+                </div>)}
+                   
                   </div>
                    <div class="textcontent">
                  <div class="gridheading">
                       <h1>{place.name}</h1>
                 </div>
                 <div class="gridsubheading"> 
-                    <h2>Private and Luxury</h2>
+                    <h2>{place.place_type}</h2>
                 </div>
                   <div class="gridtext">
+                    <p>{place.time_to_travel}</p>
+
                       <p>
-                          Do you like to see different kind of birds in one place? Lake Ziway is good choice.
-                         Lake Ziway is 160km south of Addis Ababa and is the nearest Riftvalley Lake of
-                         Ethiopia, to Addis Ababa.Can be visited in day tour from Addis.It is
-                         the largest of the Northern Rift Valley Lakes with surface Area of over 440 square kilometers.
+                      {place.description}
                      </p>
                  </div>
                   <div class="input-button">
-                     <input type="submit" value="Direction" /> 
+                     <a href={place.googel_map_link} target="_blank"> Direction </a>
                   </div>
               </div>
               </div>  

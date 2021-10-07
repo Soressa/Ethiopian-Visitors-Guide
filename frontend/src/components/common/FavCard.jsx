@@ -1,33 +1,37 @@
 import React from 'react'
-import Imglike from '../../assets/img/Like_button.svg'
+import Imgdislike from '../../assets/img/dislike.png'
+import Favourites from '../../containers/Favourites'
 
-const FavCard = () => {
+import { useDispatch } from 'react-redux'
+import { deleteFavourite } from '../../reducks/favourites/operations'
+
+const FavCard = ({favourite}) => {
+    const dispatch = useDispatch()
     return (
-        <div class="gridcontent">
+        <div class="gridcontent row">
                 
         <div class="image">
-           <img class="mainimage" src="images/Ziway-hippo.png" alt="" />
+           <img class="mainimage" src={favourite.image} alt="" />
            <div class="like">
-              <img src={Imglike} alt="" />
+              <img src={Imgdislike} onClick={() => dispatch(deleteFavourite(favourite.id))}
+ alt="" />
         </div>
           </div>
            <div class="textcontent">
          <div class="gridheading">
-              <h1>Day Trip to Ziway</h1>
+              <h1>{favourite.name}</h1>
         </div>
         <div class="gridsubheading"> 
-            <h2>Private and Luxury</h2>
+            <h2>{favourite.place_type}</h2>
         </div>
          <div class="gridtext">
+         <p>{favourite.time_to_travel}</p>
               <p>
-                  Do you like to see different kind of birds in one place? Lake Ziway is good choice.
-                 Lake Ziway is 160km south of Addis Ababa and is the nearest Riftvalley Lake of
-                 Ethiopia, to Addis Ababa.Can be visited in day tour from Addis.It is
-                 the largest of the Northern Rift Valley Lakes with surface Area of over 440 square kilometers.
+                {favourite.description}
              </p>
         </div>
          <div class="input-button">
-            <input type="submit" value="Direction" /> 
+            <a class="direction" href={favourite.googel_map_link}>Directions</a>
          </div>
       </div>
       </div>
