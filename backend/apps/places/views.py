@@ -1,5 +1,6 @@
 from rest_framework import generics, filters
 from .serializers import PlaceSerializer
+from django.http import JsonResponse
 from .models import Place
 from django_filters.rest_framework import DjangoFilterBackend
 
