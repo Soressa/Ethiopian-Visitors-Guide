@@ -5,6 +5,7 @@ import {
   deleteFavouritesAction,
 } from "./actions";
 const api = new API();
+
 const FAVOURITES_KEY = "FAVOURITES_KEY";
 export const fetchFromLocalStorage = () => {
   return async (dispatch) => {

@@ -1,5 +1,5 @@
 import API from "../../API"
-import {fetchCategoriesAction, addCategoryAction} from "./actions";
+import {fetchCategoriesAction} from "./actions";
 
 const api = new API();
 
