@@ -1,5 +1,5 @@
 import API from "../../API"
-import {fetchCategoriesAction} from "./actions";
+import {fetchCategoriesAction, addCategoryAction} from "./actions";
 
 const api = new API();
 
@@ -9,7 +9,7 @@ export const fetchCategories = () => {
             .then((categories) => {
                 dispatch(fetchCategoriesAction(categories));
             }).catch((error) => {
-                alert("Failed to connect API: /categories/")
-            })
-    }
-}
+                alert("Failed to connect API: /categories/");
+            });
+    };
+};

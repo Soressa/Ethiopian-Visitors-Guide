@@ -1,5 +1,5 @@
 import API from "../../API";
-import { fetchPlacesAction } from "./actions";
+import { fetchPlacesAction, addPlaceAction} from "./actions";
 
 const api = new API();
 export const fetchPlaces = (search, category) => {
