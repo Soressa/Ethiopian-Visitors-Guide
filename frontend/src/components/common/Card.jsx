@@ -30,7 +30,7 @@ const Card = ({place}) => {
                 <img class="mainimage" src={place.image} alt="" />
                 <div class="like">
                       <img src={Imglike} onClick={() => {clickFavourite(place)}} alt="" />
-                </div>)}
+                </div>)
                    
                   </div>
                    <div class="textcontent">
