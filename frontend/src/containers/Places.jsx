@@ -20,10 +20,10 @@ const Places = () => {
   useEffect(() => {
     dispatch(fetchFromLocalStorage());
 
-    if (parsed.search != undefined) {
+    if (parsed.search !== undefined) {
       setSearch(parsed.search);
     }
-    if (parsed.category != undefined) {
+    if (parsed.category !== undefined) {
       setCategory(parsed.category);
     }
   }, []);
