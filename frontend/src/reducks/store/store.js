@@ -18,8 +18,7 @@ export default function createStore(history) {
             places:PlacesReducer,
             categories:CategoriesReducer,
             favourites: FavourotesReducer,
-            posts: PostsReducer,
-
+            
        }),
        compose(
         applyMiddleware(
