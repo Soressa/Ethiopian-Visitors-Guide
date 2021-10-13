@@ -19,7 +19,9 @@ const Search = () => {
         <form onSubmit={submitAction}
             className="searchbox">
         <input name="search" type="inputbox" onChange={inputSearch} placeholder="Search for best places to Visit in Ethiopia" />
-        <img className="searchicon" src={Imgsearch} alt="" />
+        <a  onclick={()=>console.log("test")}>
+          <img className="searchicon"  onclick={()=>{alert("test")}} src={Imgsearch} alt="" />
+          </a>
      </form>
     )
 }
