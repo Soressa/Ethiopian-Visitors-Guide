@@ -6,8 +6,6 @@ Ehiopian Visitors Guide, with a frontend built in React & Redux and a backend bu
 
 ## Live Demo
 
-**This App uses a Heroku free plan, so I am afraid that it takes time to load the pages.**
-
 Check out [FRONTEND LIVE DEMO](https://ethiopianvisitorsfrontend.herokuapp.com/) here!!
 
 Check out [API LIVE DEMO](https://ethiopianvisitorsbackend.herokuapp.com/) here!!
